@@ -4,7 +4,7 @@ node {
            print 'Hello, world !'
            if (i==0)
            {
-               git "https://github.com/Zulaikha12/gitnew.git"
+               git "https://github.com/rranjan46/pipeline_basic.git"
                echo 'Running on Stage #0'
            }
            else {
