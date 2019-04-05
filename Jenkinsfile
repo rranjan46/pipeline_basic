@@ -1,22 +1,15 @@
-pipeline {
-agent any
-stages {
-stage("clone repo and clean it") {
-steps {
-
-sh "git clone https://github.com/rranjan46/pipeline_basic.git"
-sh "mvn clean -f pipeline_basic"
-}
-}
-stage("Test"){
-steps {
-sh "mvn test -f pipeline_basic"
-}
-}
-stage("Deploy") {
-steps {
-sh "mvn package -f pipeline_basic"
-}
-}
-}
+node {
+      for (i=0; i<2; i++) { 
+           stage "Stage #"+i
+           print 'Hello, world !'
+           if (i==0)
+           {
+               git "https://github.com/Zulaikha12/gitnew.git"
+               echo 'Running on Stage #0'
+           }
+           else {
+               build 'Declarative pipeline'
+               echo 'Running on Stage #1'
+           }
+      }
 }
